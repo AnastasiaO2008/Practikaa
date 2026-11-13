@@ -45,54 +45,10 @@
 - Пароль: `Admin123!`
 
 Смените пароль после первого входа. Не используйте тестовый пароль на опубликованном сайте.
-
-## Git
-Начальная настройка:
-```bash
-git init
-git add .
-git commit -m "Initial Language Bloom Yii2 project"
-```
-Пример осмысленных следующих коммитов:
-```bash
-git add models controllers views
-git commit -m "Add database authentication and access control"
-git add migrations
-git commit -m "Add favorites module and database migration"
-git add README.md .gitignore
-git commit -m "Document local deployment and project structure"
-```
-
-## Скриншоты для отчёта
-Создайте каталог `docs/screenshots/` и сохраните туда:
-1. `database-erd.png` — ER-диаграмма.
-2. `registration.png` — форма регистрации.
-3. `login.png` — форма входа.
-4. `profile.png` — личный кабинет.
-5. `favorites.png` — избранные слова.
-6. `admin-dashboard.png` — панель администратора.
-7. `phpmyadmin-tables.png` — таблицы и связи в phpMyAdmin.
-
-Скриншоты нужно сделать после запуска проекта на локальном компьютере; изображения-заглушки не добавляются.
-
-## Примечания по безопасности
-- `config/db.php` содержит локальные параметры подключения и не должен публиковаться с реальными паролями.
-- Для публичного развёртывания задайте уникальный `cookieValidationKey`, отключите `YII_DEBUG` и `YII_ENV_DEV`, ограничьте доступ к Gii.
-- Удаление записей выполняется POST-запросами.
+<img width="1437" height="950" alt="image" src="https://github.com/user-attachments/assets/f0533896-e08c-4046-a56e-bddd10bf4e3b" />
+<img width="1440" height="935" alt="image" src="https://github.com/user-attachments/assets/fac36962-51d2-4eb0-924f-6d940718e6e0" />
+<img width="1431" height="931" alt="image" src="https://github.com/user-attachments/assets/71b8911a-3737-4fef-bcea-fe05469f61cd" />
+<img width="1434" height="933" alt="image" src="https://github.com/user-attachments/assets/01e18040-9906-42c0-be34-b69621a1298a" />
+<img width="1423" height="954" alt="image" src="https://github.com/user-attachments/assets/ab1d0df7-b0ff-46dd-8220-5a7202446983" />
 
 
-## Важно при обновлении существующей базы
-
-Перед запуском `php yii migrate` сделайте резервную копию базы `dnevnik` в phpMyAdmin. Если миграция сообщает, что таблица уже существует, не удаляйте таблицу и не запускайте `migrate/down`: сначала сравните структуру таблиц и таблицу `migration`.
-
-
-## Статистика профиля и достижений
-
-Показатели профиля и страницы достижений вычисляются из таблиц `words`, `history` и `favorite_word`. В текущей схеме `words` не содержит `account_id`, поэтому число слов отражает общий словарь проекта, а не личные слова пользователя. Число завершённых занятий, изучаемых языков и серии активности берётся из `history` для вошедшего пользователя (статус занятия — `Завершено`). Если пользователь ещё не завершал занятия, серия и число завершённых сессий будут равны нулю.
-
-
-## Обновление: японский язык, серия занятий и админ-разделы
-
-После замены файлов запусти из папки проекта `php yii migrate`. Новая миграция `m261112_150000_seed_italian_japanese_languages` добавляет «Итальянский» и «Японский» только если их ещё нет; существующие слова и записи не удаляются.
-
-Кнопка «Завершить урок» теперь отправляет защищённый CSRF-запрос и сохраняет завершённое занятие в `history`. Текущая серия считается по уникальным датам завершённых занятий. Страницы управления аккаунтами, словарём, языками и историей получили единое оформление Language Bloom.
